@@ -11,6 +11,3 @@ DOWNLOAD_PATH = 'data'
 
 csv_file_path = os.path.join(DOWNLOAD_PATH, 'Uncleaned_DS_Jobs.csv')
 df = data_ingestion.load_csv(csv_file_path)
-
-if df is not None:
-    print(df.head())
