@@ -11,3 +11,6 @@ DOWNLOAD_PATH = 'data'
 
 csv_file_path = os.path.join(DOWNLOAD_PATH, 'Uncleaned_DS_Jobs.csv')
 df = data_ingestion.load_csv(csv_file_path)
+
+# Extract the actual company name before new line character(s)
+df['Company Name'] = df['Company Name'].str.split('\n').str[0]
