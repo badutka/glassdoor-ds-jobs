@@ -3,14 +3,10 @@ import zipfile
 import pandas as pd
 import os
 
+
 # Set up the Kaggle API key file path if needed
 # Optional if the Kaggle API key is placed in the default location (~/.kaggle/kaggle.json or C:\Users\<YourUsername>\.kaggle\kaggle.json)
 # os.environ['KAGGLE_CONFIG_DIR'] = '/path/to/.kaggle'  # Optional step
-
-# Define constants for dataset details and paths
-DATASET_ORIGIN = 'rashikrahmanpritom'
-DATASET_NAME = 'data-science-job-posting-on-glassdoor'
-DOWNLOAD_PATH = 'data'
 
 
 def download_and_unzip_kaggle_dataset(dataset_origin, dataset_name, download_path):
@@ -58,13 +54,3 @@ def load_csv(file_path):
     except Exception as e:
         print(f"Error loading CSV file '{file_path}': {e}")
         return None
-
-
-# Call the function to download and unzip the dataset
-download_and_unzip_kaggle_dataset(DATASET_ORIGIN, DATASET_NAME, DOWNLOAD_PATH)
-
-csv_file_path = os.path.join(DOWNLOAD_PATH, 'Uncleaned_DS_Jobs.csv')
-df = load_csv(csv_file_path)
-
-if df is not None:
-    print(df.head())
