@@ -4,6 +4,7 @@ import pandas as pd
 import data_ingestion
 import data_cleaning
 import data_transform
+import data_validation
 
 # Constants for dataset details and paths
 DATASET_ORIGIN = 'rashikrahmanpritom'
@@ -65,6 +66,29 @@ def main():
 
     # Output a preview of the transformed DataFrame
     print(df.head())
+    df.info()
+
+    # ==========================
+    # Data Validation Steps
+    # ==========================
+    # Apply validation to each row
+    validated_data = []
+    errors = []
+
+    for idx, row in df.iterrows():
+        person, error = data_validation.validate_row(row)
+        if person:
+            validated_data.append(person)
+        else:
+            errors.append(f"Row {idx} Error: {error}")
+
+    # Output results
+    print(f"\nValid Data rows: {validated_data.__len__()}")
+    print(f"Invalid Data rows: {errors.__len__()}")
+
+    print("\nErrors:")
+    for error in errors:
+        print(error)
 
 
 if __name__ == '__main__':
