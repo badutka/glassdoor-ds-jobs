@@ -1,10 +1,8 @@
 import os
 import pandas as pd
 
-import data_ingestion
-import data_cleaning
-import data_transform
-import data_validation
+
+import data_validation, data_transform, data_cleaning, data_ingestion
 
 # Constants for dataset details and paths
 DATASET_ORIGIN = 'rashikrahmanpritom'
@@ -22,7 +20,6 @@ def main():
 
     csv_file_path = os.path.join(DOWNLOAD_PATH, 'Uncleaned_DS_Jobs.csv')
     df = data_ingestion.load_csv(csv_file_path)
-
     # ==========================
     # Data Cleaning Steps
     # ==========================
