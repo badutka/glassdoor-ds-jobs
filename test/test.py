@@ -101,12 +101,12 @@ def test_extract_num_competitors(sample_df):
 def test_validate_row(sample_df):
     """Test row validation."""
     valid_row = sample_df.iloc[0]  # First row is valid
-    person, error = validate_row(valid_row)
-    assert person is not None
+    job_offer, error = validate_row(valid_row)
+    assert job_offer is not None
     assert error in (None, "")
 
     invalid_row = sample_df.iloc[1].copy()
     invalid_row["company_name"] = None  # Make it invalid
-    person, error = validate_row(invalid_row)
-    assert person is None
+    job_offer, error = validate_row(invalid_row)
+    assert job_offer is None
     assert isinstance(error, str) and len(error) > 0

@@ -4,7 +4,7 @@ from typing import List, Optional, Union
 import numpy as np
 
 
-class Person(BaseModel):
+class JobOffer(BaseModel):
     """
     Pydantic model representing a person's job and company details.
     """
@@ -61,7 +61,7 @@ def validate_row(row):
     """
     try:
         # Convert the row to a dictionary and unpack it into the Person model
-        return Person(**row.to_dict()), None
+        return JobOffer(**row.to_dict()), None
     except ValidationError as e:
         # If validation fails, return None and the error message
         return None, str(e)
