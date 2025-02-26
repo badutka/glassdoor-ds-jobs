@@ -52,5 +52,5 @@ def load_csv(file_path):
         print(f"CSV file '{file_path}' loaded successfully.")
         return df
     except Exception as e:
-        print(f"Error loading CSV file '{file_path}': {e}")
-        return None
+        print(f"Error loading CSV file '{file_path}'")
+        raise e

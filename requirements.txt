@@ -2,3 +2,5 @@ kaggle
 pandas
 numpy
 pydantic
+pytest
+pytest-mock

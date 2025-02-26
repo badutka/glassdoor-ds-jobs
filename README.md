@@ -30,11 +30,12 @@ git clone https://github.com/badutka/glassdoor-ds-jobs.git
 ```
 
 2. Install Dependencies:
-If you have a requirements.txt file:
 
+If you have a requirements.txt file:
 ``` bash
 pip install -r requirements.txt
 ```
+
 3. Otherwise, install the required packages manually:
 ``` bash
 pip install pandas
@@ -85,3 +86,25 @@ Provides functionality to extract key features from the dataset such as:
 
 * data_validation: \
   Implements row-level validation to ensure data integrity and quality before further analysis.
+
+### Run tests
+
+To run all tests:
+``` bash
+pytest test/test.py
+```
+
+To run a single test:
+``` bash
+pytest test/test.py -k <test_function_name>
+```
+
+To run the tests with test coverage:
+``` bash
+coverage run -m pytest test/test.py
+```
+
+To view the coverage report in `html` (writes to `htmlcov\index.html`):
+``` bash
+coverage html
+```
